@@ -600,39 +600,43 @@
                     <!-- Welcome Screen -->
                     <div class="welcome-screen" id="welcomeScreen">
                         <div class="welcome-header">
+                            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 50px; padding: 8px 20px; font-size: 0.9rem; font-weight: 600; color: #10b981; margin-bottom: 32px; backdrop-filter: blur(10px);">
+                                <span>🎯</span>
+                                <span>Comprehensive AI Assessment</span>
+                            </div>
                             <h1>AI Readiness Assessment</h1>
-                            <h2>Discover Your Organization's AI Adoption Score</h2>
+                            <h2>Discover Your Organization's AI Transformation Potential</h2>
                         </div>
                         
                         <p class="intro-text">
-                            Measure your organization's AI readiness across all departments. Get personalized AI bootcamp recommendations and accelerate your AI adoption journey with data-driven insights.
+                            Get a comprehensive analysis of your organization's AI readiness across 5 critical dimensions. Receive personalized bootcamp recommendations and actionable insights to accelerate your AI transformation journey.
                         </p>
 
                         <div class="assessment-benefits">
                             <div class="benefit">
                                 <span class="benefit-icon">📊</span>
-                                <span>Comprehensive AI readiness analysis</span>
+                                <span>Strategic AI readiness scoring across 5 key dimensions</span>
                             </div>
                             <div class="benefit">
                                 <span class="benefit-icon">🎯</span>
-                                <span>Personalized improvement roadmap</span>
+                                <span>Personalized AI bootcamp recommendations</span>
                             </div>
                             <div class="benefit">
                                 <span class="benefit-icon">🚀</span>
-                                <span>Accelerated transformation strategies</span>
+                                <span>Actionable transformation roadmap with priorities</span>
                             </div>
                             <div class="benefit">
-                                <span class="benefit-icon">👥</span>
-                                <span>Team-specific recommendations</span>
+                                <span class="benefit-icon">🏆</span>
+                                <span>Benchmark against industry AI leaders</span>
                             </div>
                         </div>
 
                         <button class="start-assessment-btn" onclick="startAssessment()">
-                            🚀 Start Your AI Readiness Assessment
+                            🎯 Begin AI Transformation Assessment
                         </button>
                         
                         <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; margin-top: 16px;">
-                            Takes 5-7 minutes • Get instant results
+                            ⏱️ Takes 5-7 minutes • 📈 Instant scoring • 🎁 Bonus: Free AI strategy session
                         </p>
                     </div>
 
@@ -645,8 +649,8 @@
                             <div class="progress-text" id="progressText">Question 1 of 20</div>
                         </div>
 
-                        <h2>AI Readiness Assessment</h2>
-                        <p class="questions-subtitle">Answer honestly to get the most accurate assessment of your organization's AI readiness</p>
+                        <h2>AI Transformation Readiness</h2>
+                        <p class="questions-subtitle">Provide honest responses to receive the most accurate strategic assessment and personalized recommendations for your organization</p>
 
                         <div id="questionContainer">
                             <!-- Questions will be dynamically loaded here -->
@@ -664,17 +668,32 @@
 
                     <!-- Results Screen -->
                     <div class="results-screen" id="resultsScreen">
+                        <div style="text-align: center; margin-bottom: 40px;">
+                            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 50px; padding: 8px 20px; font-size: 0.9rem; font-weight: 600; color: #10b981; margin-bottom: 24px; backdrop-filter: blur(10px);">
+                                <span>🎉</span>
+                                <span>Assessment Complete</span>
+                            </div>
+                        </div>
+                        
                         <div class="score-display">
                             <div class="score-number" id="finalScore">85</div>
-                            <div class="score-label">AI Readiness Score</div>
+                            <div class="score-label">AI Transformation Readiness Score</div>
                             <div class="score-description" id="scoreDescription">
-                                Your organization shows strong AI readiness with excellent leadership support and strategic planning. Focus on expanding technical capabilities and employee training.
+                                Your organization demonstrates strong AI transformation potential with excellent leadership support and strategic planning. Priority focus areas: expanding technical capabilities and accelerating employee AI fluency.
                             </div>
+                        </div>
+
+                        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 24px; backdrop-filter: blur(10px); margin: 32px 0; text-align: center;">
+                            <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 600; margin-bottom: 16px;">🎁 Bonus: Complimentary AI Strategy Session</h3>
+                            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;">Get a personalized 30-minute consultation with our AI transformation experts to discuss your results and create a custom roadmap.</p>
+                            <button class="nav-btn btn-primary" onclick="bookConsultation()" style="background: linear-gradient(135deg, #10b981, #059669);">
+                                📅 Book Your Free Strategy Session
+                            </button>
                         </div>
 
                         <div class="nav-buttons">
                             <button class="nav-btn btn-primary" onclick="downloadReport()">
-                                📄 Download Detailed Report
+                                📊 Download Comprehensive Report
                             </button>
                             <button class="nav-btn btn-secondary" onclick="restartAssessment()">
                                 🔄 Retake Assessment
@@ -693,53 +712,53 @@
         // Assessment data and logic
         const questions = [
             {
-                category: "Leadership & Strategy",
-                question: "How would you rate your organization's leadership commitment to AI adoption?",
+                category: "Leadership & Strategic Vision",
+                question: "How would you characterize your organization's executive commitment to AI transformation?",
                 options: [
-                    { text: "Strong executive sponsorship with clear AI strategy", score: 5 },
-                    { text: "Some leadership interest but limited strategic planning", score: 3 },
-                    { text: "Minimal leadership awareness of AI opportunities", score: 1 },
-                    { text: "No clear leadership direction on AI", score: 0 }
+                    { text: "C-suite champions AI with clear strategic roadmap and dedicated resources", score: 5 },
+                    { text: "Leadership shows interest but lacks comprehensive AI strategy", score: 3 },
+                    { text: "Minimal executive awareness of AI's transformational potential", score: 1 },
+                    { text: "No clear leadership vision or direction for AI initiatives", score: 0 }
                 ]
             },
             {
-                category: "Data Infrastructure",
-                question: "How accessible and organized is your organization's data?",
+                category: "Data Infrastructure & Governance",
+                question: "How mature is your organization's data foundation for AI implementation?",
                 options: [
-                    { text: "Well-organized, accessible data with clear governance", score: 5 },
-                    { text: "Some data organization but with accessibility challenges", score: 3 },
-                    { text: "Data exists but is largely siloed and difficult to access", score: 1 },
-                    { text: "Little to no organized data infrastructure", score: 0 }
+                    { text: "Enterprise-grade data infrastructure with robust governance and accessibility", score: 5 },
+                    { text: "Organized data systems with some accessibility and quality challenges", score: 3 },
+                    { text: "Fragmented data silos requiring significant integration work", score: 1 },
+                    { text: "Limited data organization and no established governance framework", score: 0 }
                 ]
             },
             {
-                category: "Technical Capabilities",
-                question: "What is your organization's current technical AI expertise level?",
+                category: "Technical Capabilities & Expertise",
+                question: "What is your organization's current AI/ML technical competency level?",
                 options: [
-                    { text: "Strong internal AI/ML team with proven experience", score: 5 },
-                    { text: "Some technical staff with basic AI knowledge", score: 3 },
-                    { text: "Limited technical expertise, rely on external partners", score: 1 },
-                    { text: "No current AI technical capabilities", score: 0 }
+                    { text: "Advanced internal AI team with production deployments and proven ROI", score: 5 },
+                    { text: "Technical staff with AI knowledge but limited implementation experience", score: 3 },
+                    { text: "Basic technical understanding, heavily dependent on external partners", score: 1 },
+                    { text: "No internal AI expertise or technical capabilities", score: 0 }
                 ]
             },
             {
-                category: "Employee Readiness",
-                question: "How prepared are your employees for AI integration?",
+                category: "Organizational Culture & Change Readiness",
+                question: "How prepared is your workforce for AI-driven transformation?",
                 options: [
-                    { text: "Enthusiastic and actively learning AI skills", score: 5 },
-                    { text: "Generally open but need training and support", score: 3 },
-                    { text: "Some resistance but willing to adapt with guidance", score: 1 },
-                    { text: "Significant resistance to AI adoption", score: 0 }
+                    { text: "Culture of innovation with employees actively developing AI skills", score: 5 },
+                    { text: "Generally receptive workforce requiring structured training programs", score: 3 },
+                    { text: "Mixed readiness with pockets of resistance to technological change", score: 1 },
+                    { text: "Significant cultural barriers and resistance to AI adoption", score: 0 }
                 ]
             },
             {
-                category: "Budget & Resources",
-                question: "What level of budget has been allocated for AI initiatives?",
+                category: "Investment & Resource Allocation",
+                question: "What level of financial commitment has been made to AI initiatives?",
                 options: [
-                    { text: "Substantial dedicated AI budget with multi-year commitment", score: 5 },
-                    { text: "Moderate budget allocation for specific AI projects", score: 3 },
-                    { text: "Limited budget, mostly exploratory investments", score: 1 },
-                    { text: "No dedicated AI budget currently allocated", score: 0 }
+                    { text: "Substantial multi-year AI investment with dedicated transformation budget", score: 5 },
+                    { text: "Moderate budget allocation for specific AI pilot projects", score: 3 },
+                    { text: "Limited exploratory budget with no long-term commitment", score: 1 },
+                    { text: "No dedicated AI budget or financial resources allocated", score: 0 }
                 ]
             }
         ];
@@ -835,20 +854,24 @@
             
             let description = '';
             if (percentage >= 80) {
-                description = "Excellent! Your organization is highly prepared for AI adoption with strong foundations across all key areas. Focus on implementation and scaling.";
+                description = "🌟 AI Transformation Leader: Your organization demonstrates exceptional AI readiness with strong foundations across all critical dimensions. Focus on scaling implementation and capturing competitive advantages through advanced AI capabilities.";
             } else if (percentage >= 60) {
-                description = "Good progress! Your organization has solid AI readiness with room for improvement in specific areas. Strategic investment will accelerate adoption.";
+                description = "🚀 AI Ready Organization: Your organization has solid AI transformation potential with strong foundations in key areas. Strategic investment in identified gaps will accelerate your journey to AI excellence.";
             } else if (percentage >= 40) {
-                description = "Moderate readiness. Your organization shows potential but needs focused development in leadership, infrastructure, or capabilities before major AI initiatives.";
+                description = "⚡ AI Opportunity Zone: Your organization shows meaningful potential but requires focused development in critical areas before major AI initiatives. Prioritize leadership alignment and infrastructure development.";
             } else {
-                description = "Early stage. Your organization would benefit from foundational AI education and strategic planning before implementing AI solutions.";
+                description = "🎯 AI Foundation Building: Your organization is in the early stages of AI readiness. Significant opportunities exist through foundational AI education, strategic planning, and change management initiatives.";
             }
             
             document.getElementById('scoreDescription').textContent = description;
         }
 
         function downloadReport() {
-            alert('Feature coming soon! Your detailed AI readiness report will be available for download.');
+            alert('🎉 Comprehensive AI Transformation Report coming soon! Your detailed analysis will include personalized recommendations, implementation roadmap, and benchmarking insights.');
+        }
+
+        function bookConsultation() {
+            alert('🚀 Excellent! Our AI transformation experts will contact you within 24 hours to schedule your complimentary strategy session. Check your email for calendar invitation details.');
         }
 
         function restartAssessment() {
