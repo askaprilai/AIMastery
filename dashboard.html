@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Mastery Dashboard - Your AI Communication Learning Hub</title>
+    <meta name="description" content="Master AI prompt architecture and communication skills with our mission-driven learning platform. Track your progress, access courses, and become an AI communication expert.">
+    
+    <!-- Import Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.5;
+            color: #ffffff;
+            overflow-x: hidden;
+            font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+            letter-spacing: -0.011em;
+            background: #0a0a0a;
+        }
+
+        /* Dark Background with Geometric Pattern */
+        .page-container {
+            min-height: 100vh;
+            background: #0a0a0a;
+            position: relative;
+        }
+
+        .gradient-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        /* Animated Floating Shapes */
+        .elegant-shape {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 2;
+            filter: blur(1px);
+        }
+
+        .shape-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            top: -200px;
+            right: -200px;
+            animation: float1 25s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            bottom: -150px;
+            left: -150px;
+            animation: float2 30s ease-in-out infinite reverse;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-60px, -100px) rotate(120deg); }
+            66% { transform: translate(100px, -60px) rotate(240deg); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(100px, -100px) rotate(180deg); }
+        }
+
+        /* Colorful Border Animation */
+        @keyframes colorfulBorder {
+            0% { border-color: rgba(102, 126, 234, 0.6); }
+            25% { border-color: rgba(139, 92, 246, 0.6); }
+            50% { border-color: rgba(244, 63, 94, 0.6); }
+            75% { border-color: rgba(245, 158, 11, 0.6); }
+            100% { border-color: rgba(102, 126, 234, 0.6); }
+        }
+
+        /* Page Content */
+        .page-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .nav-modern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Main Dashboard Layout */
+        .dashboard {
+            padding: 100px 0 60px;
+        }
+
+        .dashboard-header {
+            margin-bottom: 40px;
+        }
+
+        .welcome-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            gap: 40px;
+        }
+
+        .welcome-content h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.8));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .mission-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #10b981;
+        }
+
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            min-width: 300px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        /* Progress Overview */
+        .progress-overview {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 32px;
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .progress-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .progress-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .progress-subtitle {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .progress-badge {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .progress-badge.completed {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .progress-badge.in-progress {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        /* Recent Activity */
+        .recent-activity {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 32px;
+            backdrop-filter: blur(10px);
+        }
+
+        .activity-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .activity-content h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .activity-description {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 4px;
+        }
+
+        .activity-time {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Learning Paths */
+        .learning-paths {
+            grid-column: 1 / -1;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 32px;
+            backdrop-filter: blur(10px);
+        }
+
+        .paths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .path-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .path-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(102, 126, 234, 0.5);
+            animation: colorfulBorder 2s ease-in-out infinite;
+        }
+
+        .path-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .path-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .path-info h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .path-level {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 8px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .path-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 16px;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .path-progress {
+            margin-bottom: 16px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .path-action {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .path-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .action-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .action-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .action-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 16px;
+        }
+
+        .action-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .action-description {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .welcome-section {
+                flex-direction: column;
+                gap: 24px;
+            }
+            
+            .quick-stats {
+                min-width: auto;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .dashboard {
+                padding: 80px 0 40px;
+            }
+
+            .quick-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .paths-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Gradient Overlay */
+        .gradient-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Gradient Background -->
+        <div class="gradient-background"></div>
+
+        <!-- Floating Shapes -->
+        <div class="elegant-shape shape-1"></div>
+        <div class="elegant-shape shape-2"></div>
+
+        <!-- Navigation -->
+        <nav class="nav-modern">
+            <div class="container nav-content">
+                <a href="#" class="nav-logo">AI Mastery</a>
+                <ul class="nav-links">
+                    <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                    <li><a href="#courses" class="nav-link">Courses</a></li>
+                    <li><a href="#community" class="nav-link">Community</a></li>
+                    <li><a href="#resources" class="nav-link">Resources</a></li>
+                </ul>
+                <div class="user-profile">
+                    <div class="user-avatar">JD</div>
+                    <span style="color: rgba(255, 255, 255, 0.8); font-weight: 500;">John Doe</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="page-content">
+            <div class="container">
+                <!-- Dashboard -->
+                <section class="dashboard" id="dashboard">
+                    <!-- Welcome Section -->
+                    <div class="welcome-section">
+                        <div class="welcome-content">
+                            <h1>Welcome back, John! 👋</h1>
+                            <p class="welcome-subtitle">
+                                Master AI communication, build intelligent agents, and transform your organization's training workflows. Become the AI leader who helps other leaders maximize their team's potential.
+                            </p>
+                            <div class="mission-badge">
+                                <span>🎯</span>
+                                <span>Mission-Driven Learning</span>
+                            </div>
+                        </div>
+                        
+                        <div class="quick-stats">
+                            <div class="stat-card">
+                                <div class="stat-number">73%</div>
+                                <div class="stat-label">Course Progress</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">5</div>
+                                <div class="stat-label">AI Agents Built</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">12</div>
+                                <div class="stat-label">Leaders Helped</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Grid -->
+                    <div class="dashboard-grid">
+                        <!-- Progress Overview -->
+                        <div class="progress-overview">
+                            <h2 class="section-title">Your Progress</h2>
+                            
+                            <div class="progress-item">
+                                <div class="progress-info">
+                                    <h4>Prompt Architecture Fundamentals</h4>
+                                    <div class="progress-subtitle">7 of 10 lessons completed</div>
+                                </div>
+                                <div class="progress-badge in-progress">In Progress</div>
+                            </div>
+
+                            <div class="progress-item">
+                                <div class="progress-info">
+                                    <h4>AI Communication Mastery</h4>
+                                    <div class="progress-subtitle">12 of 12 lessons completed</div>
+                                </div>
+                                <div class="progress-badge completed">Completed</div>
+                            </div>
+
+                            <div class="progress-item">
+                                <div class="progress-info">
+                                    <h4>AI Agent Development</h4>
+                                    <div class="progress-subtitle">4 of 6 lessons completed</div>
+                                </div>
+                                <div class="progress-badge in-progress">In Progress</div>
+                            </div>
+
+                            <div class="progress-item">
+                                <div class="progress-info">
+                                    <h4>Workflow Transformation Strategies</h4>
+                                    <div class="progress-subtitle">6 of 10 lessons completed</div>
+                                </div>
+                                <div class="progress-badge in-progress">In Progress</div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="recent-activity">
+                            <h2 class="section-title">Recent Activity</h2>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon">🤖</div>
+                                <div class="activity-content">
+                                    <h4>Built "Training Assistant" AI Agent</h4>
+                                    <div class="activity-description">Created intelligent agent to automate onboarding workflows</div>
+                                    <div class="activity-time">2 hours ago</div>
+                                </div>
+                            </div>
+
+                            <div class="activity-item">
+                                <div class="activity-icon">👥</div>
+                                <div class="activity-content">
+                                    <h4>Helped Operations Leader</h4>
+                                    <div class="activity-description">Shared workflow optimization strategies for team training</div>
+                                    <div class="activity-time">Yesterday</div>
+                                </div>
+                            </div>
+
+                            <div class="activity-item">
+                                <div class="activity-icon">🏆</div>
+                                <div class="activity-content">
+                                    <h4>Earned "Prompt Architect" Badge</h4>
+                                    <div class="activity-description">Achieved 90% accuracy on prompt effectiveness test</div>
+                                    <div class="activity-time">3 days ago</div>
+                                </div>
+                            </div>
+
+                            <div class="activity-item">
+                                <div class="activity-icon">📚</div>
+                                <div class="activity-content">
+                                    <h4>Started New Learning Path</h4>
+                                    <div class="activity-description">"Business Application Strategies"</div>
+                                    <div class="activity-time">1 week ago</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Learning Paths -->
+                        <div class="learning-paths">
+                            <h2 class="section-title">Learning Paths</h2>
+                            <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 8px;">
+                                Master AI communication, build intelligent agents, and transform organizational workflows through structured learning
+                            </p>
+                            
+                            <div class="paths-grid">
+                                <div class="path-card">
+                                    <div class="path-header">
+                                        <div class="path-icon">🧠</div>
+                                        <div class="path-info">
+                                            <h3>Prompt Architecture Foundations</h3>
+                                            <div class="path-level">Beginner</div>
+                                        </div>
+                                    </div>
+                                    <p class="path-description">
+                                        Master the fundamentals of crafting effective prompts that get better results from AI systems.
+                                    </p>
+                                    <div class="path-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 70%;"></div>
+                                        </div>
+                                        <div class="progress-text">7 of 10 lessons • 70% complete</div>
+                                    </div>
+                                    <a href="#" class="path-action">Continue Learning</a>
+                                </div>
+
+                                <div class="path-card">
+                                    <div class="path-header">
+                                        <div class="path-icon">💬</div>
+                                        <div class="path-info">
+                                            <h3>AI Communication Mastery</h3>
+                                            <div class="path-level">Intermediate</div>
+                                        </div>
+                                    </div>
+                                    <p class="path-description">
+                                        Develop advanced communication strategies for different AI models and use cases.
+                                    </p>
+                                    <div class="path-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 100%;"></div>
+                                        </div>
+                                        <div class="progress-text">12 of 12 lessons • Completed ✓</div>
+                                    </div>
+                                    <a href="#" class="path-action">Review Course</a>
+                                </div>
+
+                                <div class="path-card">
+                                    <div class="path-header">
+                                        <div class="path-icon">🤖</div>
+                                        <div class="path-info">
+                                            <h3>AI Agent Development</h3>
+                                            <div class="path-level">Advanced</div>
+                                        </div>
+                                    </div>
+                                    <p class="path-description">
+                                        Build intelligent AI agents to automate workflows and enhance team productivity.
+                                    </p>
+                                    <div class="path-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 67%;"></div>
+                                        </div>
+                                        <div class="progress-text">4 of 6 lessons • 67% complete</div>
+                                    </div>
+                                    <a href="#" class="path-action">Continue Learning</a>
+                                </div>
+
+                                <div class="path-card">
+                                    <div class="path-header">
+                                        <div class="path-icon">🔄</div>
+                                        <div class="path-info">
+                                            <h3>Workflow Transformation</h3>
+                                            <div class="path-level">Professional</div>
+                                        </div>
+                                    </div>
+                                    <p class="path-description">
+                                        Transform internal training and help other leaders maximize their team workflows with AI.
+                                    </p>
+                                    <div class="path-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 60%;"></div>
+                                        </div>
+                                        <div class="progress-text">6 of 10 lessons • 60% complete</div>
+                                    </div>
+                                    <a href="#" class="path-action">Continue Learning</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="quick-actions">
+                            <div class="action-card">
+                                <div class="action-icon">🚀</div>
+                                <h3 class="action-title">Start New Course</h3>
+                                <p class="action-description">Explore our catalog of AI communication courses and workshops</p>
+                            </div>
+
+                            <div class="action-card">
+                                <div class="action-icon">🤖</div>
+                                <h3 class="action-title">Build AI Agent</h3>
+                                <p class="action-description">Create intelligent agents to automate your team's workflows and training processes</p>
+                            </div>
+
+                            <div class="action-card">
+                                <div class="action-icon">👥</div>
+                                <h3 class="action-title">Help Leaders</h3>
+                                <p class="action-description">Share strategies with other leaders to transform their internal training workflows</p>
+                            </div>
+
+                            <div class="action-card">
+                                <div class="action-icon">🔄</div>
+                                <h3 class="action-title">Workflow Optimizer</h3>
+                                <p class="action-description">Analyze and optimize your organization's training and operational workflows</p>
+                            </div>
+
+                            <div class="action-card">
+                                <div class="action-icon">🎓</div>
+                                <h3 class="action-title">Get Certified</h3>
+                                <p class="action-description">Earn industry-recognized certifications in AI prompt architecture</p>
+                            </div>
+
+                            <div class="action-card">
+                                <div class="action-icon">📚</div>
+                                <h3 class="action-title">Resource Library</h3>
+                                <p class="action-description">Access templates, guides, and tools for effective AI communication</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Gradient Overlay -->
+        <div class="gradient-overlay"></div>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.path-card, .action-card, .progress-item, .activity-item');
+            
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+
+        // Interactive elements
+        document.querySelectorAll('.path-card, .action-card').forEach(card => {
+            card.addEventListener('click', function() {
+                console.log('Clicked:', this.querySelector('h3').textContent);
+                // Navigation logic would go here
+            });
+        });
+
+        // Progress animation
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.querySelectorAll('.progress-fill').forEach(fill => {
+                    const width = fill.style.width;
+                    fill.style.width = '0%';
+                    setTimeout(() => {
+                        fill.style.width = width;
+                    }, 500);
+                });
+            }, 1000);
+        });
+
+        // Track engagement
+        function trackEngagement(action) {
+            console.log('User action:', action);
+            // Analytics tracking would go here
+        }
+
+        // Add engagement tracking
+        document.querySelectorAll('.path-action, .action-card').forEach(element => {
+            element.addEventListener('click', function() {
+                trackEngagement('Dashboard Action: ' + this.textContent.trim());
+            });
+        });
+    </script>
+</body>
+</html>
